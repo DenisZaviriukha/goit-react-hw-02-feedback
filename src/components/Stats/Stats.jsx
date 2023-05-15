@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types';
-import {StatsContainer, StatsData, NotificationCont} from './Stats.styled'
 
 export const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
     if (total) {
         return (
-            <StatsContainer>
-                <StatsData>Good:{good}</StatsData>
-                <StatsData>Neutral:{neutral}</StatsData>
-                <StatsData>Bad:{bad}</StatsData>
-                <StatsData>Total:{total}</StatsData>
-                <StatsData>Positive feedback:{positivePercentage}</StatsData>
-            </StatsContainer>
+            <div>
+                <p>Good:{good}</p>
+                <p>Neutral:{neutral}</p>
+                <p>Bad:{bad}</p>
+                <p>Total:{total}</p>
+                <p>Positive feedback:{positivePercentage}</p>
+            </div>
         )
     }
     function Notification(p) {
@@ -18,8 +17,16 @@ export const Statistics = ({ good, neutral, bad, total, positivePercentage }) =>
         return <>{message}</>;
     }
     return (
-        <NotificationCont>
+        <div>
             <Notification message = "There is no feedback"/>    
-        </NotificationCont>
+        </div>
     )
+}
+
+Statistics.propTypes = {
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    positivePercentage: PropTypes.string.isRequired,
 }

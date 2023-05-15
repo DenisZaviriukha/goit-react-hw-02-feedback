@@ -43,13 +43,11 @@ export class App extends Component {
   };
 
   render() {
-    // console.log(Object.keys(this.state))
     return (
       <Layout>
         <Section title="Please leave feedback">
           <FeedbackOptions options={Object.keys(this.state)} onFeedback={this.addFeedback} />
         </Section>
-        
         <Section title="Statistics">
           <Statistics good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.countTotalFeedback()} positivePercentage={this.countPositiveFeedbackPercentage()} />
         </Section>
@@ -58,3 +56,4 @@ export class App extends Component {
     )
   };
 };
+
